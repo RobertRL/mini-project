@@ -1,10 +1,13 @@
 input.onButtonPressed(Button.A, function () {
     led.setBrightness(led.brightness() + gain)
-    led.plotBrightness(x, y, 255)
+    led.plotBrightness(x, y, 250)
 })
 input.onButtonPressed(Button.B, function () {
-	
+    if (led.brightness() >= 250) {
+        gain += 10
+    }
 })
+let brightness = 0
 let gain = 0
 let x = 0
 let y = 0
@@ -15,10 +18,11 @@ x = 0
 gain = 10
 led.plotBrightness(x, y, led.brightness())
 basic.forever(function () {
-    if (led.brightness() >= 255) {
-        led.plotBrightness(x, y, 255)
+    if (led.brightness() >= 250) {
+        led.plotBrightness(x, y, 250)
         x += 1
         led.setBrightness(0)
         led.plotBrightness(x, y, led.brightness())
     }
+    brightness = led.brightness()
 })
