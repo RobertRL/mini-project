@@ -33,7 +33,7 @@ basic.forever(function () {
             y += 1
             x = 0
         }
-        led.plotBrightness(x, y, 136)
+        led.plotBrightness(x, y, 255)
         x += 1
         led.setBrightness(0)
         led.plotBrightness(x, y, brightness)
